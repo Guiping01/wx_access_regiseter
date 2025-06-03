@@ -1,0 +1,206 @@
+/* 全局样式 */
+page {
+  background-color: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* 通用工具类 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* 间距工具类 */
+.mb-1 { margin-bottom: 8rpx; }
+.mb-2 { margin-bottom: 16rpx; }
+.mb-3 { margin-bottom: 24rpx; }
+.mb-4 { margin-bottom: 32rpx; }
+.mb-5 { margin-bottom: 40rpx; }
+.mb-6 { margin-bottom: 48rpx; }
+
+.mt-1 { margin-top: 8rpx; }
+.mt-2 { margin-top: 16rpx; }
+.mt-3 { margin-top: 24rpx; }
+.mt-4 { margin-top: 32rpx; }
+.mt-5 { margin-top: 40rpx; }
+.mt-6 { margin-top: 48rpx; }
+
+.p-1 { padding: 8rpx; }
+.p-2 { padding: 16rpx; }
+.p-3 { padding: 24rpx; }
+.p-4 { padding: 32rpx; }
+.p-5 { padding: 40rpx; }
+.p-6 { padding: 48rpx; }
+
+/* TDesign 主题色覆盖 */
+.theme-primary {
+  color: #0052d9;
+}
+
+.theme-success {
+  color: #00a870;
+}
+
+.theme-warning {
+  color: #ed7b2f;
+}
+
+.theme-error {
+  color: #d54941;
+}
+
+/* 自定义卡片样式 */
+.custom-card {
+  background: white;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  margin-bottom: 32rpx;
+}
+
+/* 状态样式 */
+.status-success {
+  color: #52c41a;
+}
+
+.status-error {
+  color: #ff4d4f;
+}
+
+.status-warning {
+  color: #faad14;
+}
+
+.status-info {
+  color: #1890ff;
+}
+
+/* 响应式断点 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 24rpx;
+  }
+}
+
+/* 优化的TDesign图标字体配置 - 本地fallback方案 */
+@font-face {
+  font-family: 't-icon';
+  /* 保留原有网络字体，但添加本地fallback */
+  src: url('https://tdesign.gtimg.com/icon/0.3.2/fonts/t.woff2') format('woff2'),
+       url('https://tdesign.gtimg.com/icon/0.3.2/fonts/t.woff') format('woff'),
+       url('https://tdesign.gtimg.com/icon/0.3.2/fonts/t.ttf') format('truetype'),
+       /* 本地fallback - 基础图标支持 */
+       local('t-icon'),
+       local('Arial'),
+       local('sans-serif');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载 */
+  /* 字体加载失败时的备用方案 */
+  unicode-range: U+E000-E999; /* 限制字体范围到图标区域 */
+}
+
+/* TDesign组件图标样式 */
+.t-icon {
+  font-family: 't-icon', 'iconfont', Arial, sans-serif !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 字体加载失败时的备用样式 */
+  position: relative;
+}
+
+/* 字体加载失败时的备用样式 */
+.t-icon:before {
+  font-family: 't-icon', 'iconfont', Arial, sans-serif;
+}
+
+/* 当字体加载失败时，隐藏可能的错误显示 */
+.t-icon:empty:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: transparent;
+}
+
+/* 通用样式 */
+.mb-16 {
+  margin-bottom: 32rpx;
+}
+
+.mb-24 {
+  margin-bottom: 48rpx;
+}
+
+.p-16 {
+  padding: 32rpx;
+}
+
+/* 忽略字体加载错误的样式修复 */
+.t-radio__icon,
+.t-radio-group .t-icon {
+  font-family: 't-icon', Arial, sans-serif !important;
+}
+
+/* 确保radio组件在字体加载失败时仍然可用 */
+.t-radio {
+  position: relative;
+}
+
+.t-radio__icon::before {
+  content: attr(data-fallback-text);
+  font-family: Arial, sans-serif;
+} 

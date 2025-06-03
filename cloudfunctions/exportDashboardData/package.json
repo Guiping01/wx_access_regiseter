@@ -1,0 +1,9 @@
+{
+  "name": "exportDashboardData",
+  "version": "1.0.0",
+  "description": "数据导出云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

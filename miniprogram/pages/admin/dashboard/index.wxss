@@ -1,0 +1,510 @@
+.dashboard-page {
+  padding: 32rpx;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* 导航栏 */
+.nav-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+  padding: 16rpx 24rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.nav-btn::after {
+  border: none;
+}
+
+/* 卡片样式 */
+.custom-card {
+  background: white;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 2rpx solid #f0f2f5;
+}
+
+/* 筛选器样式 */
+.filter-row {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+  align-items: center;
+}
+
+.date-picker-full {
+  flex: 1;
+}
+
+.picker-full {
+  flex: 1;
+}
+
+.date-picker {
+  padding: 20rpx 24rpx;
+  border: 2rpx solid #e9ecef;
+  border-radius: 12rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.date-value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.date-separator {
+  color: #666;
+  font-size: 32rpx;
+  margin: 0 16rpx;
+  flex-shrink: 0;
+}
+
+.picker-item {
+  padding: 20rpx 24rpx;
+  border: 2rpx solid #e9ecef;
+  border-radius: 12rpx;
+  background: #fff;
+  text-align: center;
+}
+
+.picker-item text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 16rpx;
+  justify-content: flex-end;
+}
+
+.filter-btn {
+  padding: 16rpx 32rpx;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.filter-btn::after {
+  border: none;
+}
+
+.reset-btn {
+  background: #f8f9fa;
+  color: #666;
+}
+
+.apply-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* 统计概览 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 32rpx 16rpx;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
+  border-radius: 12rpx;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 图表区域 */
+.charts-section {
+  margin-top: 32rpx;
+}
+
+.chart-card {
+  margin-bottom: 32rpx;
+}
+
+.chart-container {
+  padding: 24rpx 0;
+}
+
+.chart-content {
+  min-height: 200rpx;
+}
+
+/* 新的曲线图样式 */
+.curve-chart {
+  padding: 32rpx 0;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400rpx;
+  margin: 0 32rpx;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+/* 背景网格线 */
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 60rpx;
+  right: 0;
+  bottom: 50rpx;
+}
+
+.grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1rpx;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Y轴标签 */
+.y-axis-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 50rpx;
+  width: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.y-label {
+  position: absolute;
+  right: 8rpx;
+  font-size: 22rpx;
+  color: #666;
+  transform: translateY(50%);
+  text-align: right;
+}
+
+/* X轴标签 */
+.x-axis-labels {
+  position: absolute;
+  left: 60rpx;
+  right: 0;
+  bottom: 0;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.x-label {
+  position: absolute;
+  font-size: 22rpx;
+  color: #666;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* 图表内容区域 */
+.curve-chart .chart-content {
+  position: absolute;
+  top: 0;
+  left: 60rpx;
+  right: 0;
+  bottom: 50rpx;
+}
+
+/* SVG曲线容器 */
+.curve-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.curve-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 数据点样式 */
+.data-point-wrapper {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+}
+
+.data-point {
+  width: 16rpx;
+  height: 16rpx;
+  background: #667eea;
+  border-radius: 50%;
+  border: 4rpx solid white;
+  box-shadow: 0 2rpx 12rpx rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+}
+
+.data-point:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4rpx 16rpx rgba(102, 126, 234, 0.6);
+}
+
+/* 数据标签 - 简洁样式 */
+.data-label {
+  position: absolute;
+  top: -40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #667eea;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 统计行 */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f2f5;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-key {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+/* 性别统计 */
+.gender-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.gender-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.gender-icon {
+  font-size: 32rpx;
+  width: 48rpx;
+  text-align: center;
+}
+
+.gender-info {
+  display: flex;
+  flex-direction: column;
+  width: 80rpx;
+}
+
+.gender-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.gender-percent {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.gender-bar {
+  flex: 1;
+  height: 16rpx;
+  background: #f0f2f5;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.gender-fill {
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.gender-fill.male {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gender-fill.female {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* 年龄统计 */
+.age-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.age-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 12rpx 0;
+}
+
+.age-range {
+  width: 100rpx;
+  font-size: 24rpx;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.age-bar {
+  flex: 1;
+  height: 16rpx;
+  background: #f0f2f5;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.age-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.age-count {
+  width: 80rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #333;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* 高峰时段 */
+.peak-hours {
+  text-align: center;
+}
+
+.peak-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.peak-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  justify-content: center;
+}
+
+.peak-hour {
+  padding: 8rpx 16rpx;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  color: #8b4513;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 无数据提示 */
+.no-data {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 40rpx 0;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+}
+
+/* 导出按钮 */
+.export-section {
+  margin-top: 48rpx;
+  padding: 0 32rpx 32rpx;
+}
+
+.export-btn {
+  width: 100%;
+  height: 88rpx;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.export-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+}
+
+.export-btn.disabled {
+  background: #e9ecef;
+  color: #adb5bd;
+}
+
+.export-btn::after {
+  border: none;
+}
+
+/* Canvas 连线样式 */
+.line-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+} 

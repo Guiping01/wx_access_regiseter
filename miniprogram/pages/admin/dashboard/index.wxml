@@ -1,0 +1,164 @@
+<view class="dashboard-page">
+  <!-- 统计概览 -->
+  <view class="overview-card custom-card">
+    <view class="card-title">📈 概览统计</view>
+    <view class="card-content">
+      <view class="stats-grid">
+        <view class="stat-item">
+          <view class="stat-value">{{overview.totalVisitors}}</view>
+          <view class="stat-label">总访客数</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{overview.todayVisitors}}</view>
+          <view class="stat-label">今日访客</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{overview.successRate}}%</view>
+          <view class="stat-label">开门成功率</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{overview.avgLatency}}ms</view>
+          <view class="stat-label">平均响应时间</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 图表区域 -->
+  <view class="charts-section">
+    <!-- 近7日来访人数曲线图 -->
+    <view class="chart-card custom-card">
+      <view class="card-title">📈 近7日来访人数</view>
+      <view class="chart-container">
+        <view wx:if="{{weeklyData.length > 0}}" class="curve-chart">
+          <!-- 图表主体 -->
+          <view class="chart-wrapper">
+            <!-- 背景网格线 -->
+            <view class="grid-background">
+              <view wx:for="{{yAxisLabels}}" wx:key="index" class="grid-line" style="bottom: {{index * 20}}%;"></view>
+            </view>
+            
+            <!-- Y轴标签 -->
+            <view class="y-axis-labels">
+              <view wx:for="{{yAxisLabels}}" wx:key="index" class="y-label" style="bottom: {{index * 20}}%;">{{item}}</view>
+            </view>
+            
+            <!-- 曲线和数据点 -->
+            <view class="chart-content">
+              <!-- Canvas 绘制连线 -->
+              <canvas 
+                wx:if="{{weeklyData.length > 1}}"
+                canvas-id="lineChart" 
+                class="line-canvas"
+                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;">
+              </canvas>
+              
+              <!-- 数据点和数值 -->
+              <view wx:for="{{weeklyData}}" wx:key="index" class="data-point-wrapper" 
+                    style="left: {{item.x}}%; bottom: {{item.y}}%;">
+                <view class="data-point"></view>
+                <view class="data-label">{{item.count}}</view>
+              </view>
+            </view>
+            
+            <!-- X轴标签 -->
+            <view class="x-axis-labels">
+              <view wx:for="{{weeklyData}}" wx:key="index" class="x-label" style="left: {{item.x}}%;">{{item.date}}</view>
+            </view>
+          </view>
+        </view>
+        <view wx:else class="no-data">暂无数据</view>
+      </view>
+    </view>
+
+    <!-- 访客数统计 -->
+    <view class="chart-card custom-card">
+      <view class="card-title">📊 访客数统计</view>
+      <view class="chart-container">
+        <view class="chart-content">
+          <view class="stat-row">
+            <text class="stat-key">日均访客:</text>
+            <text class="stat-value">{{monthlyStats.dailyAvg}}人</text>
+          </view>
+          <view class="stat-row">
+            <text class="stat-key">月总计:</text>
+            <text class="stat-value">{{monthlyStats.monthlyTotal}}人</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 性别分布 -->
+    <view class="chart-card custom-card">
+      <view class="card-title">👥 性别分布</view>
+      <view class="chart-container">
+        <view class="chart-content">
+          <view class="gender-stats">
+            <view class="gender-item">
+              <view class="gender-icon">👨</view>
+              <view class="gender-info">
+                <text class="gender-label">男性</text>
+                <text class="gender-percent">{{genderStats.male}}%</text>
+              </view>
+              <view class="gender-bar">
+                <view class="gender-fill male" style="width: {{genderStats.male}}%"></view>
+              </view>
+            </view>
+            <view class="gender-item">
+              <view class="gender-icon">👩</view>
+              <view class="gender-info">
+                <text class="gender-label">女性</text>
+                <text class="gender-percent">{{genderStats.female}}%</text>
+              </view>
+              <view class="gender-bar">
+                <view class="gender-fill female" style="width: {{genderStats.female}}%"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 年龄分布 -->
+    <view class="chart-card custom-card">
+      <view class="card-title">🎂 年龄分布</view>
+      <view class="chart-container">
+        <view class="chart-content">
+          <view wx:if="{{ageDistribution.length > 0}}" class="age-stats">
+            <view wx:for="{{ageDistribution}}" wx:key="index" class="age-item">
+              <text class="age-range">{{item.range}}</text>
+              <view class="age-bar">
+                <view class="age-fill" style="width: {{item.count > 0 ? (item.count / maxAgeCount * 100) : 0}}%"></view>
+              </view>
+              <text class="age-count">{{item.count}}人</text>
+            </view>
+          </view>
+          <view wx:else class="no-data">暂无数据</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 24h时段活跃 -->
+    <view class="chart-card custom-card">
+      <view class="card-title">🕐 24小时活跃分布</view>
+      <view class="chart-container">
+        <view class="chart-content">
+          <view wx:if="{{peakHours.length > 0}}" class="peak-hours">
+            <text class="peak-title">高峰时段:</text>
+            <view class="peak-list">
+              <text wx:for="{{peakHours}}" wx:key="index" class="peak-hour">{{item}}</text>
+            </view>
+          </view>
+          <view wx:else class="no-data">暂无数据</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 导出按钮 -->
+  <view class="export-section">
+    <button class="export-btn {{exporting ? 'disabled' : 'active'}}" bindtap="onExportCSV" disabled="{{exporting}}">
+      {{exporting ? '导出中...' : '📁 导出CSV数据'}}
+    </button>
+  </view>
+</view> 

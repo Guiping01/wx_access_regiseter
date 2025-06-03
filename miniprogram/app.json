@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/register/index",
+    "pages/me/index", 
+    "pages/admin/dashboard/index",
+    "pages/admin/login/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "人员登记系统",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f7fa"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#0052d9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/register/index",
+        "text": "登记",
+        "iconPath": "assets/icons/login.png",
+        "selectedIconPath": "assets/icons/login-active.png"
+      },
+      {
+        "pagePath": "pages/me/index", 
+        "text": "我的",
+        "iconPath": "assets/icons/me.png",
+        "selectedIconPath": "assets/icons/me-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于定位当前位置"
+    }
+  },
+  "cloud": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+} 

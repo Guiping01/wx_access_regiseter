@@ -1,0 +1,344 @@
+.me-page {
+  padding: 32rpx;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* 自定义卡片样式 */
+.custom-card {
+  background: white;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  margin-bottom: 32rpx;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 32rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 2rpx solid #f0f2f5;
+}
+
+.profile-card, .records-card {
+  background: white;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 32rpx;
+  padding: 32rpx;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 0 32rpx 32rpx 32rpx;
+}
+
+.profile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.basic-info {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.age {
+  font-size: 28rpx;
+  color: #6b7280;
+}
+
+.records-card {
+  margin-bottom: 32rpx;
+}
+
+.device-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+}
+
+.icon {
+  font-size: 32rpx;
+}
+
+.icon.success {
+  filter: grayscale(0);
+}
+
+.icon.fail {
+  filter: grayscale(1);
+}
+
+.empty-records {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  padding: 64rpx 0;
+  color: #9ca3af;
+}
+
+.empty-icon {
+  font-size: 64rpx;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 隐藏的管理员入口 */
+.admin-hidden {
+  font-size: 28rpx;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.admin-hidden:active {
+  opacity: 1;
+}
+
+/* 头像区域 */
+.avatar-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32rpx;
+}
+
+.avatar-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 6rpx solid #f0f2f5;
+  transition: all 0.3s;
+}
+
+.avatar-container:active .avatar {
+  transform: scale(0.95);
+  border-color: #667eea;
+}
+
+.avatar-edit-tip {
+  font-size: 24rpx;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid rgba(102, 126, 234, 0.2);
+}
+
+/* 基本信息一行 */
+.basic-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+  padding: 24rpx;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
+  border-radius: 16rpx;
+}
+
+.info-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.gender-display {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.gender-icon {
+  font-size: 24rpx;
+}
+
+.gender-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+/* 编辑按钮 */
+.edit-section {
+  margin-bottom: 32rpx;
+}
+
+.edit-btn {
+  width: 100%;
+  height: 80rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 16rpx rgba(102, 126, 234, 0.3);
+  transition: all 0.3s;
+}
+
+.edit-btn::after {
+  border: none;
+}
+
+.edit-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 8rpx rgba(102, 126, 234, 0.3);
+}
+
+/* 联系信息 */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: white;
+  border: 2rpx solid #f0f2f5;
+  border-radius: 12rpx;
+}
+
+.contact-label {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.contact-value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+/* 开门记录 */
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.record-item {
+  padding: 24rpx;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
+  border-radius: 16rpx;
+  border: 1rpx solid #e9ecef;
+}
+
+.record-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.record-device {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.device-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.record-result {
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.record-result.success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+  border: 1rpx solid #c3e6cb;
+}
+
+.record-result.fail {
+  background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+  color: #721c24;
+  border: 1rpx solid #f1b0b7;
+}
+
+.record-time {
+  font-size: 24rpx;
+  color: #666;
+  text-align: right;
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .basic-info-row {
+    flex-direction: column;
+    gap: 16rpx;
+  }
+  
+  .info-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12rpx 0;
+    border-bottom: 1rpx solid #f0f2f5;
+  }
+  
+  .info-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* TDesign 组件样式覆盖 */
+.t-button {
+  border-radius: 12rpx;
+}
+
+.t-cell {
+  border-radius: 8rpx;
+} 

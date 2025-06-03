@@ -1,0 +1,104 @@
+{
+  "users": {
+    "openid": "oU7Hv5FBVQxxx123456789",
+    "name": "张三",
+    "gender": "male",
+    "age": 28,
+    "phone": "13800138000",
+    "avatarUrl": "https://tdesign.gtimg.com/site/avatar.jpg",
+    "isWxPhone": false,
+    "status": "active",
+    "registerTime": "2024-01-15T08:30:00.000Z",
+    "lastLoginTime": "2024-05-29T09:12:00.000Z",
+    "createBy": "oU7Hv5FBVQxxx123456789",
+    "updateBy": "oU7Hv5FBVQxxx123456789",
+    "createTime": "2024-01-15T08:30:00.000Z",
+    "updateTime": "2024-05-29T09:12:00.000Z"
+  },
+  
+  "sms_codes": {
+    "phone": "13800138000",
+    "code": "123456",
+    "used": false,
+    "createTime": "2024-05-29T09:10:00.000Z",
+    "expireTime": "2024-05-29T09:15:00.000Z",
+    "usedTime": null,
+    "createBy": "oU7Hv5FBVQxxx123456789"
+  },
+  
+  "login_logs": {
+    "userId": "64a1b2c3d4e5f67890123456",
+    "openid": "oU7Hv5FBVQxxx123456789",
+    "phone": "13800138000",
+    "loginTime": "2024-05-29T09:12:00.000Z",
+    "loginType": "phone",
+    "deviceInfo": {
+      "model": "iPhone 15 Pro",
+      "system": "iOS 17.4"
+    },
+    "createTime": "2024-05-29T09:12:00.000Z"
+  },
+  
+  "door_logs": {
+    "userId": "64a1b2c3d4e5f67890123456",
+    "deviceId": "LOCK-01",
+    "deviceName": "办公楼大门",
+    "result": "success",
+    "latency": 380,
+    "location": "北京市朝阳区",
+    "createTime": "2024-05-29T09:12:00.000Z"
+  },
+
+  "admins": {
+    "username": "admin",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "email": "admin@company.com",
+    "role": "ADMIN",
+    "permissions": ["dashboard", "user_management", "system_config"],
+    "realName": "系统管理员",
+    "phone": "13800000000",
+    "status": "active",
+    "lastLoginTime": "2024-05-29T10:30:00.000Z",
+    "loginCount": 256,
+    "createTime": "2024-01-01T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:30:00.000Z"
+  },
+
+  "devices": {
+    "deviceId": "LOCK-01",
+    "deviceName": "办公楼大门",
+    "deviceType": "door_lock",
+    "location": "北京市朝阳区办公楼一层",
+    "ipAddress": "192.168.1.100",
+    "status": "online",
+    "lastHeartbeat": "2024-05-29T10:25:00.000Z",
+    "installDate": "2024-01-15T00:00:00.000Z",
+    "maintainDate": "2024-03-15T00:00:00.000Z",
+    "createTime": "2024-01-15T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:25:00.000Z"
+  },
+
+  "admin_logs": {
+    "adminId": "64a1b2c3d4e5f67890123456",
+    "adminName": "admin",
+    "action": "view_dashboard",
+    "description": "查看数据大屏",
+    "targetType": "dashboard",
+    "targetId": null,
+    "ipAddress": "192.168.1.10",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+    "result": "success",
+    "createTime": "2024-05-29T10:30:00.000Z"
+  },
+
+  "system_config": {
+    "configKey": "sms_frequency_limit",
+    "configValue": "60",
+    "configType": "number",
+    "description": "短信发送频率限制(秒)",
+    "category": "sms",
+    "isEditable": true,
+    "createTime": "2024-01-01T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:30:00.000Z"
+  }
+} 

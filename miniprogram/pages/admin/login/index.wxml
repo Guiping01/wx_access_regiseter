@@ -1,0 +1,55 @@
+<view class="login-page">
+  <view class="login-header">
+    <view class="login-title">🔐 管理员登录</view>
+    <view class="login-desc">管理员专用入口</view>
+  </view>
+
+  <!-- 账号密码登录 -->
+  <view class="login-card form-card">
+    <view class="form-title">账号密码登录</view>
+    <form bindsubmit="onSubmit">
+      <view class="form-item">
+        <view class="form-label">账号</view>
+        <input 
+          class="form-input"
+          placeholder="请输入账号或邮箱" 
+          value="{{formData.username}}"
+          bindinput="onInputUsername"
+        />
+      </view>
+      
+      <view class="form-item">
+        <view class="form-label">密码</view>
+        <input 
+          class="form-input"
+          type="password"
+          password="{{true}}"
+          placeholder="请输入密码" 
+          value="{{formData.password}}"
+          bindinput="onInputPassword"
+        />
+      </view>
+      
+      <view class="login-actions">
+        <button 
+          class="login-btn {{canSubmit ? 'active' : 'disabled'}}"
+          form-type="submit"
+          disabled="{{!canSubmit || logging}}"
+        >
+          {{logging ? '登录中...' : '登录'}}
+        </button>
+      </view>
+    </form>
+    
+    <view class="login-footer">
+      <text class="forgot-password" bindtap="onForgotPassword">忘记密码？</text>
+    </view>
+  </view>
+
+  <!-- 登录说明 -->
+  <view class="login-notice">
+    <text class="notice-text">• 仅管理员和超级管理员可登录</text>
+    <text class="notice-text">• 登录后可查看数据大屏和管理功能</text>
+    <text class="notice-text">• 如有问题请联系系统管理员</text>
+  </view>
+</view> 

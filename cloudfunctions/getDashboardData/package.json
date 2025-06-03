@@ -1,0 +1,9 @@
+{
+  "name": "getDashboardData",
+  "version": "1.0.0",
+  "description": "Dashboard数据统计云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+} 

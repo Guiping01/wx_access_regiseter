@@ -1,0 +1,82 @@
+<view class="me-page">
+  <!-- 个人信息卡片 -->
+  <view class="profile-card">
+    <view class="card-title">
+      <text>个人信息</text>
+      <!-- 隐藏的管理员入口 - 长按标题 -->
+      <text class="admin-hidden" bindlongpress="onAdminEntrance">👨‍💼</text>
+    </view>
+    
+    <!-- 头像区域 -->
+    <view class="avatar-section">
+      <view class="avatar-container" bindtap="onChooseAvatar">
+        <image class="avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+        <view class="avatar-edit-tip">点击更换</view>
+      </view>
+    </view>
+    
+    <!-- 基本信息一行 -->
+    <view class="basic-info-row">
+      <view class="info-item">
+        <text class="info-label">姓名</text>
+        <text class="info-value">{{user.name}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">性别</text>
+        <view class="gender-display">
+          <text class="gender-icon">{{user.gender === 'male' ? '👨' : '👩'}}</text>
+          <text class="gender-text">{{user.gender === 'male' ? '男' : '女'}}</text>
+        </view>
+      </view>
+      <view class="info-item">
+        <text class="info-label">年龄</text>
+        <text class="info-value">{{user.age}}岁</text>
+      </view>
+    </view>
+    
+    <!-- 编辑按钮单独一行 -->
+    <view class="edit-section">
+      <button class="edit-btn" bindtap="onEdit">编辑资料</button>
+    </view>
+    
+    <!-- 联系信息 -->
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="contact-label">📱 手机号</text>
+        <text class="contact-value">{{user.phone}}</text>
+      </view>
+      <view class="contact-item">
+        <text class="contact-label">📅 注册时间</text>
+        <text class="contact-value">{{user.registerTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 开门记录卡片 -->
+  <view class="records-card">
+    <view class="card-title">🔐 近期开门记录</view>
+    <view wx:if="{{logs.length > 0}}" class="records-list">
+      <view 
+        wx:for="{{logs}}" 
+        wx:key="index"
+        class="record-item"
+      >
+        <view class="record-main">
+          <view class="record-device">
+            <text class="device-icon">{{item.result === '成功' ? '🔓' : '🔒'}}</text>
+            <text class="device-name">{{item.deviceName}}</text>
+          </view>
+          <view class="record-result {{item.result === '成功' ? 'success' : 'fail'}}">
+            {{item.result}}
+          </view>
+        </view>
+        <view class="record-time">{{item.time}}</view>
+      </view>
+    </view>
+    
+    <view wx:else class="empty-records">
+      <text class="empty-icon">📂</text>
+      <text class="empty-text">暂无开门记录</text>
+    </view>
+  </view>
+</view> 

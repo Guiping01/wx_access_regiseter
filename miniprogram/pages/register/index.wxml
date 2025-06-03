@@ -1,0 +1,153 @@
+<view class="register-page">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">👤 人员登记</text>
+    <text class="page-desc">请填写您的基本信息</text>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-container">
+    
+    <!-- 姓名 -->
+    <view class="form-item">
+      <text class="form-label">姓名 <text class="required">*</text></text>
+      <input 
+        class="form-input {{nameError ? 'error' : ''}}"
+        placeholder="请输入您的姓名" 
+        value="{{formData.name}}"
+        bindinput="onInputName"
+        maxlength="20"
+      />
+      <view wx:if="{{nameError}}" class="error-tip">{{nameError}}</view>
+    </view>
+
+    <!-- 性别选择 -->
+    <view class="form-item">
+      <text class="form-label">性别 <text class="required">*</text></text>
+      <view class="gender-buttons">
+        <view 
+          class="gender-btn {{formData.gender === 'male' ? 'active' : ''}}" 
+          bindtap="onSelectGender" 
+          data-gender="male"
+        >
+          <text class="gender-icon">👨</text>
+          <text class="gender-text">男</text>
+        </view>
+        <view 
+          class="gender-btn {{formData.gender === 'female' ? 'active' : ''}}" 
+          bindtap="onSelectGender" 
+          data-gender="female"
+        >
+          <text class="gender-icon">👩</text>
+          <text class="gender-text">女</text>
+        </view>
+      </view>
+      <view wx:if="{{genderError}}" class="error-tip">{{genderError}}</view>
+    </view>
+
+    <!-- 年龄 -->
+    <view class="form-item">
+      <text class="form-label">年龄 <text class="required">*</text></text>
+      <input 
+        class="form-input {{ageError ? 'error' : ''}}"
+        type="number"
+        placeholder="请输入年龄" 
+        value="{{formData.age}}"
+        bindinput="onInputAge"
+        maxlength="3"
+      />
+      <view wx:if="{{ageError}}" class="error-tip">{{ageError}}</view>
+    </view>
+
+    <!-- 手机号 -->
+    <view class="form-item">
+      <text class="form-label">手机号 <text class="required">*</text></text>
+      
+      <view class="phone-container">
+        <input 
+          class="form-input phone-input {{phoneError ? 'error' : ''}}"
+          type="number"
+          placeholder="{{formData.isWxPhone ? '已通过微信获取' : '请输入手机号'}}"
+          value="{{formData.phone}}"
+          bindinput="onInputPhone"
+          maxlength="11"
+          disabled="{{formData.isWxPhone}}"
+        />
+        
+        <!-- 微信获取按钮 -->
+        <button 
+          class="wx-get-btn {{formData.isWxPhone ? 'success' : ''}}" 
+          open-type="getPhoneNumber" 
+          bindgetphonenumber="onGetPhoneNumber"
+          disabled="{{formData.isWxPhone}}"
+        >
+          {{formData.isWxPhone ? '✓已获取' : '微信获取'}}
+        </button>
+      </view>
+      
+      <view wx:if="{{phoneError}}" class="error-tip">{{phoneError}}</view>
+      
+      <!-- 手机号来源提示 -->
+      <view class="phone-source" wx:if="{{formData.phone && !phoneError}}">
+        <text class="source-text {{formData.isWxPhone ? 'wx-source' : 'manual-source'}}">
+          {{formData.isWxPhone ? '✓ 微信获取' : '📱 手动输入'}}
+        </text>
+        <text class="clear-phone" bindtap="onClearPhone">重新输入</text>
+      </view>
+    </view>
+
+    <!-- 短信验证码（仅手动输入时显示） -->
+    <view wx:if="{{formData.phone && !formData.isWxPhone}}" class="form-item">
+      <text class="form-label">验证码 <text class="required">*</text></text>
+      <view class="sms-container">
+        <input 
+          class="form-input sms-input {{smsError ? 'error' : ''}}"
+          type="number"
+          placeholder="请输入6位验证码" 
+          value="{{formData.smsCode}}"
+          bindinput="onInputSmsCode"
+          maxlength="6"
+        />
+        <button 
+          class="sms-btn {{canSendSMS ? 'active' : 'disabled'}}" 
+          bindtap="onSendSMS" 
+          disabled="{{!canSendSMS}}"
+        >
+          {{smsText}}
+        </button>
+      </view>
+      <view wx:if="{{smsError}}" class="error-tip">{{smsError}}</view>
+      <!-- 开发模式验证码显示 -->
+      <view wx:elif="{{devSmsCode}}" class="dev-sms-tip">
+        <text class="dev-tip-text">开发模式验证码: {{devSmsCode}}</text>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button 
+      class="submit-btn {{canSubmit ? 'active' : 'disabled'}}" 
+      bindtap="onSubmit"
+      disabled="{{!canSubmit || submitting}}"
+    >
+      {{submitting ? submitText : '完成登记'}}
+    </button>
+  </view>
+
+  <!-- 成功状态弹窗 -->
+  <view wx:if="{{showSuccess}}" class="success-modal">
+    <view class="success-content">
+      <view class="success-icon">✅</view>
+      <view class="success-title">{{successTitle}}</view>
+      <view class="success-desc">{{successDesc}}</view>
+      <view wx:if="{{showDoorStatus}}" class="door-status">
+        <view class="door-loading">
+          <view class="loading-spinner"></view>
+          <text>正在开门...</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,54 @@
+{
+  "admins_sample": {
+    "username": "admin",
+    "password": "e10adc3949ba59abbe56e057f20f883e",
+    "email": "admin@company.com",
+    "role": "ADMIN",
+    "permissions": ["dashboard", "user_management", "system_config"],
+    "realName": "系统管理员",
+    "phone": "13800000000",
+    "status": "active",
+    "lastLoginTime": "2024-05-29T10:30:00.000Z",
+    "loginCount": 256,
+    "createTime": "2024-01-01T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:30:00.000Z"
+  },
+
+  "devices_sample": {
+    "deviceId": "LOCK-01",
+    "deviceName": "办公楼大门",
+    "deviceType": "door_lock",
+    "location": "北京市朝阳区办公楼一层",
+    "ipAddress": "192.168.1.100",
+    "status": "online",
+    "lastHeartbeat": "2024-05-29T10:25:00.000Z",
+    "installDate": "2024-01-15T00:00:00.000Z",
+    "maintainDate": "2024-03-15T00:00:00.000Z",
+    "createTime": "2024-01-15T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:25:00.000Z"
+  },
+
+  "admin_logs_sample": {
+    "adminId": "64a1b2c3d4e5f67890123456",
+    "adminName": "admin",
+    "action": "view_dashboard",
+    "description": "查看数据大屏",
+    "targetType": "dashboard",
+    "targetId": null,
+    "ipAddress": "192.168.1.10",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+    "result": "success",
+    "createTime": "2024-05-29T10:30:00.000Z"
+  },
+
+  "system_config_sample": {
+    "configKey": "sms_frequency_limit",
+    "configValue": "60",
+    "configType": "number",
+    "description": "短信发送频率限制(秒)",
+    "category": "sms",
+    "isEditable": true,
+    "createTime": "2024-01-01T00:00:00.000Z",
+    "updateTime": "2024-05-29T10:30:00.000Z"
+  }
+} 
