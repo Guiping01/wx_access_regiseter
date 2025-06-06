@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"暂无测试用例\" && exit 0",
-    "dev": "echo \"开发环境启动\"",
-    "build": "echo \"构建完成\"",
-    "deploy": "echo \"部署云函数\"",
-    "install-cloud-deps": "npm run install-deps --prefix cloudfunctions/exportDashboardData"
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "test:cloud": "node scripts/test-cloud-functions.js",
+    "install:cloud": "npm run install:cloud:all",
+    "install:cloud:all": "cd cloudfunctions && for dir in */; do echo \"Installing dependencies for $dir\"; cd \"$dir\" && npm install && cd ..; done"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +15,7 @@
     "tdesign-miniprogram": "^1.9.3"
   },
   "devDependencies": {
-    "miniprogram-api-typings": "^2.8.3-1"
+    "miniprogram-api-typings": "^2.8.3-1",
+    "jest": "^29.0.0"
   }
 }
